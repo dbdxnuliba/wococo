@@ -1,0 +1,32 @@
+--- git status ---
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   legged_gym/legged_gym/utils/task_registry.py
+
+no changes added to commit (use "git add" and/or "git commit -a") 
+
+
+--- git diff ---
+diff --git a/legged_gym/legged_gym/utils/task_registry.py b/legged_gym/legged_gym/utils/task_registry.py
+index 1e700a5..fbf5a5c 100644
+--- a/legged_gym/legged_gym/utils/task_registry.py
++++ b/legged_gym/legged_gym/utils/task_registry.py
+@@ -66,6 +66,7 @@ class TaskRegistry():
+         # parse sim params (convert to dict first)
+         sim_params = {"sim": class_to_dict(env_cfg.sim)}
+         sim_params = parse_sim_params(args, sim_params)
++        args.headless = True
+         env = task_class(   cfg=env_cfg,
+                             sim_params=sim_params,
+                             physics_engine=args.physics_engine,
+@@ -128,4 +129,4 @@ class TaskRegistry():
+         return runner, train_cfg
+ 
+ # make global task registry
+-task_registry = TaskRegistry()
+\ No newline at end of file
++task_registry = TaskRegistry()
