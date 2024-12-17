@@ -196,7 +196,7 @@ if __name__ == "__main__":
                 # print('obs_tensor:',obs_tensor)
                 # policy inference
                 action = policy(obs_tensor).detach().numpy().squeeze()
-                action = np.clip(action, clip_actions, clip_actions)
+                action = np.clip(action, -clip_actions, clip_actions)
                 actions_filter = action.copy()
                 actions_filter = torch.tensor(actions_filter)
                 if action_filt:
